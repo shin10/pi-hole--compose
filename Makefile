@@ -5,7 +5,8 @@ help: ## shows this helpfile
 	@grep --no-filename -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 setup: ## saves your password and ServerIP to .env 
-	@echo Password: && read -s password && echo 'WEBPASSWORD='$$password > ./.env && \
+	@echo 
+	@echo New PiHole admin Password: && read -s password && echo 'WEBPASSWORD='$$password > ./.env && \
 		echo "ServerIP=$$(hostname -I | awk '{print $$1}')" >> .env
 
 start: ## mods system resolver and starts the PiHole container
