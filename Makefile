@@ -9,6 +9,9 @@ setup: ## saves your password and ServerIP to .env
 	@echo New PiHole admin Password: && read -s password && echo 'WEBPASSWORD='$$password > ./.env && \
 		echo "ServerIP=$$(hostname -I | awk '{print $$1}')" >> .env
 
+passwd: ## changes the password for the running container
+	@docker-compose exec pihole pihole -a -p
+
 start: ## mods system resolver and starts the PiHole container
 	sudo sed -r -i.orig 's/#?DNSStubListener=yes/DNSStubListener=no/g' /etc/systemd/resolved.conf
 	sudo sh -c 'rm /etc/resolv.conf && ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf'
