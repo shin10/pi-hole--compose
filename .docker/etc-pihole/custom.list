@@ -1,3 +1,7 @@
 192.168.178.1 fritz.box
 192.168.180.1 fritz.boxx
-192.168.180.27 pivoid
+192.168.178.10 pi.void
+192.168.178.10 pivoid
+192.168.178.10 local.broker
+192.168.178.10 home.broker
+192.168.178.10 pi.hole
